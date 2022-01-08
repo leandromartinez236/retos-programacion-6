@@ -6,6 +6,15 @@ function crearGato(nombre, edad) {
   // Agrega un método (funcion) llamado "meow" que devuelva el string "Meow!"
   // Devuelve el objeto
   // Tu código:
+  //si la clave es igual que el valor entonces  se pone una sola vez (nombre, edad) = nombre: nombre  edad:edad
+  const gato = {
+    nombre,
+    edad,
+    meow() {
+      return 'Meow!'
+    }
+  }
+  return gato
 }
 
 function agregarPropiedad(objeto, property) {
@@ -13,6 +22,8 @@ function agregarPropiedad(objeto, property) {
   // Devuelve el objeto
   // NOTA: El nombre de la propiedad no es "propiedad", el nombre es el valor del argumento llamado "property" (una cadena/string)
   // Tu código:
+  objeto[property] = null;
+  return objeto
 }
 
 function invocarMetodo(objeto, metodo) {
@@ -20,12 +31,15 @@ function invocarMetodo(objeto, metodo) {
   // Invoca ese método
   // Nada necesita ser devuelto ("returned")
   // Tu código:
+  //es como decir objeto.decirHola() 
+  objeto[metodo]()
 }
 
 function multiplicarNumeroDesconocidoPorCinco(objetoMisterioso) {
   // "objetoMisterioso" tiene una propiedad llamada "numeroMisterioso"
   // Multiplica el numeroMisterioso por 5 y devuelve el producto
   // Tu código:
+  return objetoMisterioso.numeroMisterioso * 5
 }
 
 function eliminarPropiedad(objeto, unaPropiedad) {
@@ -33,18 +47,32 @@ function eliminarPropiedad(objeto, unaPropiedad) {
   // tip: tenes que usar bracket notation
   // Devuelve el objeto
   // Tu código:
+  delete objeto[unaPropiedad]
+  return objeto
 }
 
 function nuevoUsuario(nombre, email, password) {
   // Crea un nuevo objeto con las propiedades coincidiendo con los argumentos que se pasan a la función
   // Devuelve el objeto
   // Tu código:
+  const persona = {
+    nombre,
+    email,
+    password,
+  }
+  return persona
 }
 
 function tieneEmail(usuario) {
   // Devuelve "true" si el usuario tiene un valor definido para la propiedad "email"
   // De lo contratio, devuelve "false"
   // Tu código:
+  // usuario {
+  // user nombre: 'antonio'
+  // email: 'pepito@gmail'   email: null
+  //}
+  return usuario.hasOwnProperty('email')
+  
 }
 
 function tienePropiedad(objeto, propiedad) {

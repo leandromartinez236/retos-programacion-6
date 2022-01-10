@@ -79,8 +79,9 @@ function tienePropiedad(objeto, propiedad) {
   // "propiedad" es un string
   // De lo contrario, devuelve "false"
   // Tu código:
-  const nose = Object.keys(objeto)[0]
-  return nose === propiedad
+  // const nose = Object.keys(objeto)[0]
+  // return nose === propiedad
+  return objeto.hasOwnProperty(propiedad)
 }
 
 function verificarPassword(usuario, password) {
@@ -115,9 +116,11 @@ function pasarUsuarioAPremium(usuarios) {
   // Devuelve el array de usuarios
   // Tu código:
   //for recorrde el array "usuarios" y cambia el valor de las propiedads "esPremium"
-  for (let i = 0; i < usuarios.length; i++) {
-   usuarios[i].esPremium = true
-  }
+  // for (let i = 0; i < usuarios.length; i++) {
+  //   usuarios[i].esPremium = true
+  // }
+  // return usuarios
+  usuarios.forEach((usuario) => usuario.esPremium = true );
   return usuarios
 }
 
@@ -128,7 +131,7 @@ function sumarLikesDeUsuario(usuario) {
   // Suma todos los likes de todos los objetos "post"
   // Devuelve la suma
   // Tu código:
-  
+  return usuario.posts.reduce((acc, item) => acc + item.likes, 0)
 }
 
 function agregarMetodoCalculoDescuento(producto) {
@@ -141,7 +144,12 @@ function agregarMetodoCalculoDescuento(producto) {
   // producto.porcentajeDeDescuento -> 0.2 (o simplemente ".2")
   // producto.calcularPrecioDescuento() -> 20 - (20 * 0.2)
   // Tu código:
+  producto.calcularPrecioDescuento = function () {
+    const precioDeDescuento = producto.precio - (producto.precio * producto.porcentajeDeDescuento)   
+    return precioDeDescuento
+  }   
   
+  return producto
 }
 
 // No modificar nada debajo de esta línea
